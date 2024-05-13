@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://gmqjufcibk7h"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_772vc"]
+[ext_resource type="PackedScene" uid="uid://dbthdmvlynncc" path="res://player.tscn" id="1_wtvb7"]
+[ext_resource type="PackedScene" uid="uid://cxrh1kbs6d2or" path="res://pipe.tscn" id="2_7ctce"]
+[ext_resource type="Script" path="res://scorescr.gd" id="4_wkeml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8210g"]
+size = Vector2(20, 116)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_772vc")
+
+[node name="player" parent="." instance=ExtResource("1_wtvb7")]
+position = Vector2(295, 406)
+
+[node name="Area2D" parent="." instance=ExtResource("2_7ctce")]
+position = Vector2(958, 275)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(273, 97)
+shape = SubResource("RectangleShape2D_8210g")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -281.0
+offset_top = -1.0
+offset_right = -114.0
+offset_bottom = 81.0
+text = "Score"
+script = ExtResource("4_wkeml")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]
+[connection signal="area_entered" from="Area2D2" to="Label" method="_on_area_2d_2_area_entered"]

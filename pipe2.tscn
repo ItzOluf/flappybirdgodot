@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0lxsh6x4iqf6"]
+
+[ext_resource type="PackedScene" uid="uid://cxrh1kbs6d2or" path="res://pipe.tscn" id="1_6h77v"]
+
+[node name="pipe" instance=ExtResource("1_6h77v")]
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.678047, 0.0487563, 0.243438, 1)
+position = Vector2(9.5, 240.5)
+
+[node name="Sprite2D2" parent="." index="1"]
+modulate = Color(0.678047, 0.0487563, 0.243438, 1)
+position = Vector2(7.5, -220)
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(9, -257)
+
+[node name="CollisionShape2D2" parent="." index="3"]
+position = Vector2(10, 269)
